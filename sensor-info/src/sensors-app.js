@@ -109,7 +109,7 @@ class SensorsApp extends LitElement {
             sensor.readingValue3 = `${propertyName}.W: ${round(sensor[propertyName][3], 3)}`;
           } else {
             let readingId = `readingValue${i++}`;
-            sensor[readingId] = `${propertyName}: ${round(sensor[propertyName], 3)}`;
+            sensor[readingId] = `${propertyName}: ${round(sensor[propertyName], 1)}`;
           }
         }
       }
