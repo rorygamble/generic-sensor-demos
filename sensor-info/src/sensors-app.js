@@ -88,6 +88,8 @@ class SensorsApp extends LitElement {
     sensor.frequency = (options && options.hasOwnProperty('frequency')) ? `${options.frequency} Hz` : 'default';
     sensor.id = this.sensorDataModel.length;
 
+    let lastTimestamp = null
+
     sensor.onreading = () => {
       function round(number, precision) {
         let factor = 10 ** precision;
@@ -96,7 +98,15 @@ class SensorsApp extends LitElement {
 
       let i = 0;
       let properties = new Array("timestamp", "illuminance", "x", "y", "z", "quaternion");
+      let currentTimestamp = sensor.timestamp
+      let delta = 0
 
+      if (lastTimestamp !== null) {
+        delta = currentTimestamp - lastTimestamp;
+      }
+
+      lastTimestamp = currentTimestamp;
+      
       for (let property in properties) {
         let propertyName = properties[property];
         if (propertyName == 'timestamp') {
