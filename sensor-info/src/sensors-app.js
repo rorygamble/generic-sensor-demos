@@ -226,7 +226,7 @@ class SensorsApp extends LitElement {
       <app-header-layout fullbleed="">
         <app-header slot="header" condenses="" fixed="" effects="waterfall">
           <app-toolbar>
-            <div main-title="">Sensor info</div>
+            <div main-title="">Sensor info 1</div>
             <mwc-icon @click="${this.openAddSensorDialog}">add_circle_outline</mwc-icon>
           </app-toolbar>
         </app-header>
